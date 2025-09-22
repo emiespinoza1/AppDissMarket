@@ -111,12 +111,20 @@ export const ProveedorCarrito = ({ children }) => {
 
   // Función para realizar pedido
   const realizarPedido = async (direccionEnvio) => {
-    if (!usuarioActual || itemsCarrito.length === 0) {
-      Alert.alert('Error', 'No hay productos en el carrito');
+    console.log('Iniciando proceso de pedido...', { usuarioActual, itemsCarrito });
+    
+    if (!usuarioActual) {
+      Alert.alert('Error', 'Debes iniciar sesión para realizar pedidos');
+      return { success: false };
+    }
+    
+    if (itemsCarrito.length === 0) {
+      Alert.alert('Carrito vacío', 'Agrega productos al carrito para realizar un pedido');
       return { success: false };
     }
 
     try {
+      console.log('Creando pedido...');
       setCargandoCarrito(true);
       
       const pedido = {
@@ -129,21 +137,34 @@ export const ProveedorCarrito = ({ children }) => {
         fechaEntrega: null
       };
 
+      console.log('Datos del pedido:', pedido);
+
       // Guardar pedido en Firestore
       const docRef = await addDoc(collection(db, 'pedidos'), pedido);
+      console.log('Pedido guardado con ID:', docRef.id);
       
       // Limpiar carrito después del pedido exitoso
       await limpiarCarrito();
       
       Alert.alert(
         '¡Pedido realizado!', 
-        `Tu pedido #${docRef.id.substring(0, 8)} ha sido enviado correctamente`
+        `Tu pedido #${docRef.id.substring(0, 8)} ha sido enviado correctamente. Total: C$ ${calcularTotal().toFixed(2)}`,
+        [
+          {
+            text: 'Ver Pedidos',
+            onPress: () => console.log('Ir a pedidos')
+          },
+          {
+            text: 'OK',
+            style: 'default'
+          }
+        ]
       );
       
       return { success: true, pedidoId: docRef.id };
     } catch (error) {
-      console.error('Error al realizar pedido:', error);
-      Alert.alert('Error', 'No se pudo realizar el pedido');
+      console.error('Error detallado al realizar pedido:', error);
+      Alert.alert('Error', `No se pudo realizar el pedido: ${error.message}`);
       return { success: false, error: error.message };
     } finally {
       setCargandoCarrito(false);

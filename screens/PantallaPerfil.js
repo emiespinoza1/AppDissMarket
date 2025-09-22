@@ -37,7 +37,7 @@ export default function PantallaPerfil({ navigation }) {
   const mostrarAyuda = () => {
     Alert.alert(
       'Ayuda y Soporte',
-      'Para recibir ayuda, contáctanos:\n\n• Teléfono: +505 8888-8888\n• Email: soporte@dissmar.com\n• Horario: Lunes a Viernes 8:00 AM - 6:00 PM'
+      'Para recibir ayuda, contáctanos:\n\n• Teléfono: +505 8231-0640\n• Email: soporte@dissmar.com\n• Horario: Lunes a Domingo 8:00 AM - 6:00 PM'
     );
   };
 

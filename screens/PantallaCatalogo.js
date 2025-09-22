@@ -18,6 +18,8 @@ import { db } from '../firebase';
 import { useCarrito } from '../contexts/ContextoCarrito';
 import { useFavoritos } from '../contexts/ContextoFavoritos';
 import { useAuth } from '../contexts/ContextoAuth';
+import LogoDissmar from '../components/LogoDissmar';
+
 
 export default function PantallaCatalogo() {
   const [productos, setProductos] = useState([]);
@@ -140,10 +142,7 @@ export default function PantallaCatalogo() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
-          <Text style={styles.logoNombre}>DISSMAR</Text>
+          <LogoDissmar size="small" />
         </View>
         <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
       </View>

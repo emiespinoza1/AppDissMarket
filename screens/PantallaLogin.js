@@ -13,6 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import LogoDissmar from '../components/LogoDissmar';
 
 export default function PantallaLogin({ navigation }) {
   const [email, setEmail] = useState('');
@@ -63,10 +64,7 @@ export default function PantallaLogin({ navigation }) {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Header con logo */}
         <View style={styles.header}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
-          <Text style={styles.logoNombre}>DISSMAR</Text>
+        <LogoDissmar size="large" />
           <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
         </View>
 
