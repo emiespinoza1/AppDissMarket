@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useFavoritos } from '../contexts/ContextoFavoritos';
 import { useCarrito } from '../contexts/ContextoCarrito';
+import LogoDissmar from '../components/LogoDissmar';
 
 export default function PantallaFavoritos() {
   const { favoritos, removerDeFavoritos, cargandoFavoritos } = useFavoritos();
@@ -85,9 +86,7 @@ export default function PantallaFavoritos() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
+          <LogoDissmar size="small" showText={false} style={{ marginRight: 10 }} />
           <Text style={styles.logoNombre}>DISSMAR</Text>
         </View>
         <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
@@ -142,20 +141,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 5,
-  },
-  logoCirculo: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#000',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  logoTexto: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
   },
   logoNombre: {
     fontSize: 20,

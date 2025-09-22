@@ -14,6 +14,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
+import LogoDissmar from '../components/LogoDissmar';
+
 
 export default function PantallaRegistro({ navigation }) {
   const [nombreCompleto, setNombreCompleto] = useState('');
@@ -125,10 +127,7 @@ export default function PantallaRegistro({ navigation }) {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Header con logo */}
         <View style={styles.header}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
-          <Text style={styles.logoNombre}>DISSMAR</Text>
+          <LogoDissmar size="large" />
           <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
         </View>
 

@@ -29,17 +29,12 @@ export default function PantallaCarrito() {
 
   // Función para manejar el pedido
   const manejarRealizarPedido = async () => {
-    console.log('¡BOTÓN PRESIONADO!');
-    console.log('Datos del usuario:', datosUsuario);
-    console.log('Items en carrito:', itemsCarrito);
-    
     if (itemsCarrito.length === 0) {
       Alert.alert('Carrito vacío', 'Agrega productos al carrito para realizar un pedido');
       return;
     }
 
     const direccionEnvio = datosUsuario?.direccion || 'Dirección no especificada';
-    console.log('Dirección de envío:', direccionEnvio);
 
     Alert.alert(
       'Confirmar pedido',
@@ -52,27 +47,13 @@ export default function PantallaCarrito() {
         {
           text: 'Confirmar',
           onPress: async () => {
-            console.log('Usuario confirmó el pedido - iniciando proceso...');
             setRealizandoPedido(true);
-            
-            try {
-              const resultado = await realizarPedido(direccionEnvio);
-              console.log('Resultado del pedido:', resultado);
-              
-              if (resultado.success) {
-                console.log('¡Pedido realizado exitosamente!');
-                Alert.alert(
-                  '¡Pedido realizado!',
-                  `Tu pedido ha sido procesado correctamente.\nTotal: C$ ${calcularTotal().toFixed(2)}`,
-                  [{ text: 'OK' }]
-                );
-              }
-            } catch (error) {
-              console.error('Error al procesar pedido:', error);
-              Alert.alert('Error', 'Hubo un problema al procesar tu pedido');
-            }
-            
+            const resultado = await realizarPedido(direccionEnvio);
             setRealizandoPedido(false);
+            
+            if (resultado.success) {
+              // El carrito se limpia automáticamente en el contexto
+            }
           },
         },
       ]

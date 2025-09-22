@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../contexts/ContextoAuth';
+import LogoDissmar from '../components/LogoDissmar';
+
 
 export default function PantallaEditarPerfil({ navigation }) {
   const { datosUsuario, actualizarPerfil } = useAuth();
@@ -114,10 +116,7 @@ export default function PantallaEditarPerfil({ navigation }) {
       <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
         {/* Logo y título */}
         <View style={styles.logoContainer}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
-          <Text style={styles.logoNombre}>DISSMAR</Text>
+          <LogoDissmar size="medium" />
           <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
         </View>
 
