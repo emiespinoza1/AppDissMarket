@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { collection, query, where, orderBy, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/ContextoAuth';
+import LogoDissmar from '../components/LogoDissmar';
 
 export default function PantallaPedidos() {
   const [pedidos, setPedidos] = useState([]);
@@ -186,9 +187,7 @@ export default function PantallaPedidos() {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
+          <LogoDissmar size="small" showText={false} style={{ marginRight: 10 }} />
           <Text style={styles.logoNombre}>DISSMAR</Text>
         </View>
         <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>

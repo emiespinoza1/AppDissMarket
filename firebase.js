@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
-// REEMPLAZA ESTA CONFIGURACIÓN con la que copiaste de Firebase Console
+
 const firebaseConfig = {
   apiKey: "AIzaSyBADBV9SpKZiruHwHisBzoJS3_jNYQ6SnQ",
   authDomain: "dissmar-app.firebaseapp.com",

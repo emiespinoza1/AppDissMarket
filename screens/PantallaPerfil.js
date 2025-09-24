@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../contexts/ContextoAuth';
+import LogoDissmar from '../components/LogoDissmar';
+
 
 export default function PantallaPerfil({ navigation }) {
   const { usuarioActual, datosUsuario, cerrarSesion } = useAuth();
@@ -54,9 +56,7 @@ export default function PantallaPerfil({ navigation }) {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <View style={styles.logoCirculo}>
-            <Text style={styles.logoTexto}>Dd</Text>
-          </View>
+          <LogoDissmar size="small" showText={false} style={{ marginRight: 10 }} />
           <Text style={styles.logoNombre}>DISSMAR</Text>
         </View>
         <Text style={styles.eslogan}>Tu Distribuidora de Confianza</Text>
